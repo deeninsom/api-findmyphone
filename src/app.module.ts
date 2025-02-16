@@ -10,12 +10,19 @@ import { AppGateway } from './gateway/app/app.gateway';
 import { LocationService } from './location/location.service';
 import { LocationController } from './location/location.controller';
 import { LocationModule } from './location/location.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
+  
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true, // Ensures ConfigService is available everywhere
+    }),
+
     AuthModule, 
     UsersModule, 
-    DevicesModule, LocationModule
+    DevicesModule, 
+    LocationModule
   ],
 
   providers: [PrismaService, FirebaseService, AppGateway, LocationService],
