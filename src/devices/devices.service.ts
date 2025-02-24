@@ -24,7 +24,7 @@ export class DevicesService {
         ...customData,
       },
       android: {
-        priority: 'high' as any, // Fix tipe priority Firebase
+        priority: 'high' as any, 
       },
       apns: {
         payload: {
